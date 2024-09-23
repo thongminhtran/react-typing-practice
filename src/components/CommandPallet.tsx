@@ -1,6 +1,6 @@
 import { KeyboardEvent, useEffect, useState, useRef } from "react";
 import styles from "stylesheets/CommandPallet.module.scss";
-import { options, Options } from "./Header";
+import { options, OptionsConfig } from "./Header";
 import { useDispatch } from "react-redux";
 import { setTime, setTheme, setType } from "store/actions";
 
@@ -27,7 +27,7 @@ export default function CommandPallet({ setShowPallet }: CommandPalletProps) {
 
     useEffect(() => {
         const filteredOptions = currentCategory
-            ? options[currentCategory as keyof Options].map(String)
+            ? options[currentCategory as keyof OptionsConfig].map(String)
             : Object.keys(options);
 
         setFilteredCommands(
