@@ -8,7 +8,7 @@ import { State } from "store/reducer";
 import { setTimerId } from "store/actions";
 import { recordTest } from "helpers/recordTest";
 import "stylesheets/themes.scss";
-import CommandPallet from "components/CommandPallet";
+import ActionMenu from "components/ActionMenu";
 
 export default function App() {
     const {
@@ -64,7 +64,7 @@ export default function App() {
     return (
         <>
             <Header />
-            {showPallet && <CommandPallet setShowPallet={setShowPallet} />}
+            {showPallet && <ActionMenu setShowPallet={setShowPallet} />}
             {timer ? <Test /> : <Result />}
             <Footer />
         </>

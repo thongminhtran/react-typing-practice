@@ -4,11 +4,11 @@ import { options, OptionsConfig } from "./Header";
 import { useDispatch } from "react-redux";
 import { setTime, setTheme, setType } from "store/actions";
 
-interface CommandPalletProps {
+interface ActionMenuProps {
     setShowPallet: (show: boolean) => void;
 }
 
-export default function CommandPallet({ setShowPallet }: CommandPalletProps) {
+export default function ActionMenu({ setShowPallet }: ActionMenuProps) {
     const [searchTerm, setSearchTerm] = useState("");
     const [currentCategory, setCurrentCategory] = useState("");
     const [highlightedIndex, setHighlightedIndex] = useState(0);
