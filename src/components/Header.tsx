@@ -45,12 +45,12 @@ export const options: OptionsConfig = {
     ],
     type: [
         "words",
-        "tough_words",
-        "full_sentences",
+        "hard-words",
+        "sentences",
         "numbers",
-        "quotes",
-        "tech_terms",
-        "node_js_terms",
+        "got",
+        "javascript",
+        "python",
     ],
 };
 

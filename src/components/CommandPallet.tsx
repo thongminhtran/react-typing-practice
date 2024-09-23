@@ -4,26 +4,27 @@ import { options, OptionsConfig } from "./Header";
 import { useDispatch } from "react-redux";
 import { setTime, setTheme, setType } from "store/actions";
 
-interface CommandPalletProps {
-    setShowPallet: (show: boolean) => void;
+interface Props {
+    setShowPallet: Function;
 }
 
-export default function CommandPallet({ setShowPallet }: CommandPalletProps) {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [currentCategory, setCurrentCategory] = useState("");
-    const [highlightedIndex, setHighlightedIndex] = useState(0);
-    const [filteredCommands, setFilteredCommands] = useState<string[]>([]);
+export default function CommandPallet(props: Props) {
+    const [palletText, setPalletText] = useState("");
+    const [selectedOption, setSelectedOption] = useState("");
+    const [highlightedOption, setHighlightedOption] = useState(0);
+    const [commandList, setCommandList] = useState<string[]>([]);
     const dispatch = useDispatch();
-    const inputRef = useRef<HTMLInputElement>(null);
+    const palletTextBox = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-        const handleClickOutside = () => setShowPallet(false);
-        document.addEventListener("click", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("click", handleClickOutside);
+        document.onclick = () => {
+            props.setShowPallet((s: boolean) => !s);
+            console.log("heere");
         };
-    }, [setShowPallet]);
+        return () => {
+            document.onclick = null;
+        };
+    }, [props]);
 
     useEffect(() => {
         const filteredOptions = currentCategory
@@ -39,47 +40,40 @@ export default function CommandPallet({ setShowPallet }: CommandPalletProps) {
     }, [searchTerm, currentCategory]);
 
     const handleCommandSelection = (command: string) => {
-        setSearchTerm("");
+        setPalletText("");
         if (!command) return;
-
-        if (!currentCategory) {
-            setCurrentCategory(command);
-        } else {
-            switch (currentCategory) {
-                case "time":
-                    dispatch(setTime(Number(command)));
-                    break;
-                case "theme":
-                    dispatch(setTheme(command));
-                    break;
-                case "type":
-                    dispatch(setType(command));
-                    break;
-                default:
-                    console.log("Unknown command:", currentCategory, command);
-            }
-            setShowPallet(false);
+        if (!selectedOption) {
+            setSelectedOption(command);
+            return;
         }
-    };
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-        switch (e.key) {
-            case "ArrowUp":
-                setHighlightedIndex((prev) => Math.max(prev - 1, 0));
+        switch (selectedOption) {
+            case "time":
+                dispatch(setTime(+command));
                 break;
-            case "ArrowDown":
-                setHighlightedIndex((prev) =>
-                    Math.min(prev + 1, filteredCommands.length - 1)
-                );
+            case "theme":
+                dispatch(setTheme(command));
                 break;
-            case "Enter":
-                handleCommandSelection(filteredCommands[highlightedIndex]);
-                break;
-            case "Escape":
-                setShowPallet(false);
+            case "type":
+                dispatch(setType(command));
                 break;
             default:
-                break;
+                console.log(selectedOption, command);
+        }
+        props.setShowPallet(false);
+    };
+
+    const handlePalletKeys = (e: KeyboardEvent) => {
+        if (e.key === "ArrowUp") {
+            setHighlightedOption((op) => (op > 0 ? op - 1 : op));
+        } else if (e.key === "ArrowDown") {
+            setHighlightedOption((op) =>
+                op < commandList.length - 1 ? op + 1 : op
+            );
+        } else if (e.key === "Enter") {
+            const command = commandList[highlightedOption];
+            handleCommandSelection(command);
+        } else if (e.key === "Escape") {
+            props.setShowPallet(false);
         }
         e.stopPropagation();
     };
@@ -87,28 +81,26 @@ export default function CommandPallet({ setShowPallet }: CommandPalletProps) {
     return (
         <div
             className={styles.commandPallet}
-            onKeyDown={handleKeyDown}
-            onClick={(e) => e.stopPropagation()}
-        >
+            onKeyDown={handlePalletKeys}
+            onClick={(e) => e.stopPropagation()}>
             <input
-                ref={inputRef}
+                ref={palletTextBox}
                 type="text"
                 className={styles.commandInput}
                 placeholder="Type to search"
-                value={searchTerm}
+                value={palletText}
                 autoFocus
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => setPalletText(e.target.value)}
             />
             <div className={styles.commandList}>
-                {filteredCommands.map((command, idx) => (
+                {commandList!.map((option, idx) => (
                     <div
                         className={`${styles.command} ${
-                            highlightedIndex === idx ? styles.highlighted : ""
+                            highlightedOption === idx && styles.highlighted
                         }`}
                         key={idx}
-                        onClick={() => handleCommandSelection(command)}
-                    >
-                        {command}
+                        onClick={() => handleCommandSelection(option)}>
+                        {option}
                     </div>
                 ))}
             </div>
