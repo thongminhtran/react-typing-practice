@@ -37,7 +37,6 @@ export const options: OptionsConfig = {
         "numbers",
         "quotes",
         "tech_terms",
-        "node_js_terms",
     ],
 };
 
@@ -139,7 +138,7 @@ export default function Header() {
     return (
         <header className={timerId ? "hidden" : undefined}>
             <a href="." className="brand">
-                ReactSpeedType
+                Hi, this website is developed by React (TypeScript)_
             </a>
             <div className="buttons">
                 {Object.entries(options).map(([option, choices]) => (

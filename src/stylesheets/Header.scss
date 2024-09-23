@@ -11,10 +11,14 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        gap: 5px;
+        .type {
+            text-align: end;
+        }
     }
 }
 
 .brand {
-    font-size: 21pt;
+    font-size: 20pt;
     align-self: flex-start;
 }

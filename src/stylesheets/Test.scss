@@ -12,9 +12,9 @@
     color: var(--hl-color);
 }
 .box {
-    font-size: 21pt;
+    font-size: 19pt;
     overflow: hidden;
-    height: 93px;
+    height: 120px; /* Changed from fixed height to min-height */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
