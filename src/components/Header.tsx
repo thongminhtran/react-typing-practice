@@ -54,7 +54,7 @@ export default function Header() {
         const theme = localStorage.getItem("theme") || "light";
         const type = localStorage.getItem("type") || "words";
         const time = parseInt(localStorage.getItem("time") || "60", 10);
-        import(`wordlists/${type}.json`).then((words) =>
+        import(`list_of_words/${type}.json`).then((words) =>
             dispatch(setWordList(words.default)),
         );
         dispatch(timerSet(time));
