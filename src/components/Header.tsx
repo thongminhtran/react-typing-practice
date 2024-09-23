@@ -12,7 +12,7 @@ import { State } from "store/reducer";
 import "stylesheets/Header.scss";
 import "stylesheets/AnimatedTheme.scss";
 
-export interface Options {
+export interface OptionsConfig {
     time: number[];
     theme: string[];
     type: string[];
@@ -24,7 +24,7 @@ interface AnimationProps {
     theme: string;
 }
 
-export const options: Options = {
+export const options: OptionsConfig = {
     time: [15, 30, 45, 60, 120],
     theme: [
         "default",
@@ -59,8 +59,9 @@ export default function Header() {
         preferences: { timeLimit, theme, type },
         time: { timerId },
     } = useSelector((state: State) => state);
+
     const [animationProps, setAnimationProps] =
-        useState<AnimationProps | null>();
+        useState<AnimationProps | null>(null);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -68,7 +69,7 @@ export default function Header() {
         const type = localStorage.getItem("type") || "words";
         const time = parseInt(localStorage.getItem("time") || "60", 10);
         import(`wordlists/${type}.json`).then((words) =>
-            dispatch(setWordList(words.default))
+            dispatch(setWordList(words.default)),
         );
         dispatch(timerSet(time));
         dispatch(setType(type));
@@ -92,7 +93,6 @@ export default function Header() {
         }
     }, [dispatch, theme]);
 
-    // Set Time
     useEffect(() => {
         if (timeLimit !== 0) {
             document.querySelector(".time")?.childNodes.forEach((el) => {
@@ -108,7 +108,6 @@ export default function Header() {
         }
     }, [dispatch, timeLimit]);
 
-    // Set Type
     useEffect(() => {
         if (type !== "") {
             document.querySelector(".type")?.childNodes.forEach((el) => {
