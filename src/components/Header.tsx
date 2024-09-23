@@ -27,21 +27,8 @@ interface AnimationProps {
 export const options: OptionsConfig = {
     time: [15, 30, 45, 60, 120],
     theme: [
-        "default",
-        "mkbhd",
-        "mocha",
-        "coral",
-        "ocean",
-        "azure",
-        "forest",
-        "rose-milk",
-        "amethyst",
-        "amber",
-        "terminal",
-        "vscode",
-        "mountain",
-        "pink-sky",
-        "red-season",
+        "light",
+        "dark",
     ],
     type: [
         "words",
@@ -65,7 +52,7 @@ export default function Header() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const theme = localStorage.getItem("theme") || "default";
+        const theme = localStorage.getItem("theme") || "light";
         const type = localStorage.getItem("type") || "words";
         const time = parseInt(localStorage.getItem("time") || "60", 10);
         import(`wordlists/${type}.json`).then((words) =>
@@ -77,21 +64,19 @@ export default function Header() {
         dispatch(setTheme(theme));
     }, [dispatch]);
 
-    // Set Theme
     useEffect(() => {
         if (theme) {
             document.querySelector(".theme")?.childNodes.forEach((el) => {
-                if (el instanceof HTMLButtonElement)
-                    el.classList.remove("selected");
+                if (el instanceof HTMLButtonElement) el.classList.remove("selected");
             });
             document
                 .querySelector(`button[value="${theme}"]`)
                 ?.classList.add("selected");
-            document.body.children[1].classList.remove(...options.theme);
+            document.body.children[1].classList.remove("light", "dark");
             document.body.children[1].classList.add(theme);
             localStorage.setItem("theme", theme);
         }
-    }, [dispatch, theme]);
+    }, [theme]);
 
     useEffect(() => {
         if (timeLimit !== 0) {
@@ -154,7 +139,7 @@ export default function Header() {
     return (
         <header className={timerId ? "hidden" : undefined}>
             <a href="." className="brand">
-                typing-test
+                ReactSpeedType
             </a>
             <div className="buttons">
                 {Object.entries(options).map(([option, choices]) => (
