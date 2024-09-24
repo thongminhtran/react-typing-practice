@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-typing-practice/static/css/main.b8d5c8cd.css",
-    "main.js": "/react-typing-practice/static/js/main.df83456a.js",
+    "main.js": "/react-typing-practice/static/js/main.cb924fb1.js",
     "static/js/614.8abb9e2e.chunk.js": "/react-typing-practice/static/js/614.8abb9e2e.chunk.js",
     "static/js/184.4e086dc1.chunk.js": "/react-typing-practice/static/js/184.4e086dc1.chunk.js",
     "static/js/410.0b628679.chunk.js": "/react-typing-practice/static/js/410.0b628679.chunk.js",
@@ -10,10 +10,10 @@
     "static/js/578.fd392e71.chunk.js": "/react-typing-practice/static/js/578.fd392e71.chunk.js",
     "index.html": "/react-typing-practice/index.html",
     "main.b8d5c8cd.css.map": "/react-typing-practice/static/css/main.b8d5c8cd.css.map",
-    "main.df83456a.js.map": "/react-typing-practice/static/js/main.df83456a.js.map"
+    "main.cb924fb1.js.map": "/react-typing-practice/static/js/main.cb924fb1.js.map"
   },
   "entrypoints": [
     "static/css/main.b8d5c8cd.css",
-    "static/js/main.df83456a.js"
+    "static/js/main.cb924fb1.js"
   ]
 }
