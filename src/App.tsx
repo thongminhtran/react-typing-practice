@@ -20,7 +20,7 @@ export default function App() {
 
     useEffect(() => {
         document.onkeydown = (e) => {
-            if (e.ctrlKey && e.key === "k") {
+            if (e.ctrlKey && e.key === "a") {
                 setShowPallet((s) => !s);
                 e.preventDefault();
             } else if (

@@ -6,11 +6,11 @@ export default function Footer() {
     const { timerId } = useSelector((state: State) => state.time);
     return (
         <div className={`bottom-area ${timerId ? "hidden" : ""}`}>
-            <span className="hint">
-                <kbd>Ctrl</kbd> + <kbd>k</kbd> to open the search bar
+             <span className="hint">
+                <kbd>Tab</kbd> to restart the test
             </span>
             <span className="hint">
-                <kbd>Tab</kbd> to restart the test
+                <kbd>Ctrl</kbd> + <kbd>A</kbd> to open the search bar
             </span>
             <footer>
                 <a
@@ -19,7 +19,7 @@ export default function Footer() {
                     href="https://github.com/thongminhtran/react-typing-practice">
                     <span>&lt;/&gt;</span> github
                 </a>
-                <span style={{paddingBottom: 15}}>
+                <span style={{ paddingBottom: 15 }}>
                     created by{" "}
                     <a
                         target="_blank"
