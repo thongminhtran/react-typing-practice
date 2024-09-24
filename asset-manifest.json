@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/react-typing-practice/static/css/main.320d965a.css",
-    "main.js": "/react-typing-practice/static/js/main.b4708367.js",
-    "static/js/365.1afa8820.chunk.js": "/react-typing-practice/static/js/365.1afa8820.chunk.js",
-    "static/js/421.ea8c66b1.chunk.js": "/react-typing-practice/static/js/421.ea8c66b1.chunk.js",
-    "static/js/954.715a1d3c.chunk.js": "/react-typing-practice/static/js/954.715a1d3c.chunk.js",
-    "static/js/932.5fad53b8.chunk.js": "/react-typing-practice/static/js/932.5fad53b8.chunk.js",
-    "static/js/423.4f25f0c9.chunk.js": "/react-typing-practice/static/js/423.4f25f0c9.chunk.js",
-    "static/js/149.b9a888cd.chunk.js": "/react-typing-practice/static/js/149.b9a888cd.chunk.js",
+    "main.css": "/react-typing-practice/static/css/main.b8d5c8cd.css",
+    "main.js": "/react-typing-practice/static/js/main.df83456a.js",
+    "static/js/614.8abb9e2e.chunk.js": "/react-typing-practice/static/js/614.8abb9e2e.chunk.js",
+    "static/js/184.4e086dc1.chunk.js": "/react-typing-practice/static/js/184.4e086dc1.chunk.js",
+    "static/js/410.0b628679.chunk.js": "/react-typing-practice/static/js/410.0b628679.chunk.js",
+    "static/js/530.12a4a7d7.chunk.js": "/react-typing-practice/static/js/530.12a4a7d7.chunk.js",
+    "static/js/838.c0d37a98.chunk.js": "/react-typing-practice/static/js/838.c0d37a98.chunk.js",
+    "static/js/578.fd392e71.chunk.js": "/react-typing-practice/static/js/578.fd392e71.chunk.js",
     "index.html": "/react-typing-practice/index.html",
-    "main.320d965a.css.map": "/react-typing-practice/static/css/main.320d965a.css.map",
-    "main.b4708367.js.map": "/react-typing-practice/static/js/main.b4708367.js.map"
+    "main.b8d5c8cd.css.map": "/react-typing-practice/static/css/main.b8d5c8cd.css.map",
+    "main.df83456a.js.map": "/react-typing-practice/static/js/main.df83456a.js.map"
   },
   "entrypoints": [
-    "static/css/main.320d965a.css",
-    "static/js/main.b4708367.js"
+    "static/css/main.b8d5c8cd.css",
+    "static/js/main.df83456a.js"
   ]
 }
