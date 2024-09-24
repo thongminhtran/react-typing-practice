@@ -7,10 +7,10 @@ export default function Footer() {
     return (
         <div className={`bottom-area ${timerId ? "hidden" : ""}`}>
             <span className="hint">
-                <kbd>Ctrl</kbd> + <kbd>k</kbd> to open command pallet
+                <kbd>Ctrl</kbd> + <kbd>k</kbd> to open the search bar
             </span>
             <span className="hint">
-                <kbd>Tab</kbd> to restart test
+                <kbd>Tab</kbd> to restart the test
             </span>
             <footer>
                 <a
